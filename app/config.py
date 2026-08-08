@@ -34,5 +34,3 @@ class Setting(BaseSettings):
   def get_settings() -> Setting:
     """Cached settings instance - loaded once, reused everywhere. """
     return Setting()
-
-  settings = get_settings()
