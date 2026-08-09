@@ -18,7 +18,7 @@ class Setting(BaseSettings):
   langchain_project_name: str = "production-api"
 
   # Application
-  app_anv: str = "development"
+  app_env: str = "development"
   log_level: str = "INFO"
   rate_limit: str = "20/minute"
   cache_ttl_seconds: int = 300
@@ -26,11 +26,11 @@ class Setting(BaseSettings):
 
   model_config = { "env_file": ".env", "extra": "ignore" }
 
-  @property
-  def is_production(self) -> bool:
-    return self.app_anv == "production"
+@property
+def is_production(self) -> bool:
+  return self.app_env == "production"
 
-  @lru_cache
-  def get_settings() -> Setting:
-    """Cached settings instance - loaded once, reused everywhere. """
-    return Setting()
+@lru_cache
+def get_settings() -> Setting:
+  """Cached settings instance - loaded once, reused everywhere. """
+  return Setting()
