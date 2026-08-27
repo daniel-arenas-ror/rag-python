@@ -3,27 +3,27 @@
 """
 
 import re
-from typing import Optionnal
-from langSmith import traceable
+from typing import Optional
+from langsmith import traceable
 
 class InputSanitizer:
-    """
-    Sanitize user input before it reaches the LLM.
-    Detects prompt injection patterns and cleans dangerous content.
-    """
+  """
+  Sanitize user input before it reaches the LLM.
+  Detects prompt injection patterns and cleans dangerous content.
+  """
 
-    INJECTION_PATTERNS = [
-        r"ignore\s+(all\s+)?previous\s+instructions",
-        r"forget\s+(all\s+)?previous",
-        r"new\s+instructions\s*:",
-        r"system\s*prompt",
-        r"---\s*end\s*(of)?\s*prompt",
-        r"pretend\s+you\s+are",
-        r"act\s+as\s+(if\s+)?you",
-        r"bypass\s+(all\s+)?restrictions",
-        r"reveal\s+(your|the)\s+(system|instructions|prompt)",
-        r"you\s+are\s+now\s+(DAN|jailbroken)",
-    ]
+  INJECTION_PATTERNS = [
+      r"ignore\s+(all\s+)?previous\s+instructions",
+      r"forget\s+(all\s+)?previous",
+      r"new\s+instructions\s*:",
+      r"system\s*prompt",
+      r"---\s*end\s*(of)?\s*prompt",
+      r"pretend\s+you\s+are",
+      r"act\s+as\s+(if\s+)?you",
+      r"bypass\s+(all\s+)?restrictions",
+      r"reveal\s+(your|the)\s+(system|instructions|prompt)",
+      r"you\s+are\s+now\s+(DAN|jailbroken)",
+  ]
 
 
   def __init__(self):

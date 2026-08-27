@@ -10,7 +10,6 @@ from datetime import datetime, timezone
 from functools import wraps
 from typing import Any, Callable
 
-
 # === Structured JSON Logger ===
 
 class JSONFormatter(logging.Formatter):

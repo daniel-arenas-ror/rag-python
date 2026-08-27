@@ -24,10 +24,9 @@ class ChatResponse(BaseModel):
   response: str
   thread_id: str
   model_used: str
-  cached_ bool = False
+  cached: bool = False
   processing_time_ms: float
   timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc))
-
 
 class HealthResponse(BaseModel):
   """ Health chack response. """
@@ -36,7 +35,7 @@ class HealthResponse(BaseModel):
   version: str = "1.0.0"
   checks: dict = {}
 
-class Metricsresponse(BaseModel):
+class MetricsResponse(BaseModel):
   """ Metrics endpoint response. """
   total_requests: int
   total_errors: int
