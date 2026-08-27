@@ -4,7 +4,7 @@ Pydantic models for input validation and response structure.
 """
 
 from pydantic import BaseModel, Field
-from datetime import datetime
+from datetime import datetime, timezone
 
 class ChatRequest(BaseModel):
   """ Incoming chat request. """
